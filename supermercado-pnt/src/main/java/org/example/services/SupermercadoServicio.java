@@ -14,7 +14,15 @@ public class SupermercadoServicio {
 
     }
     public void agregarProducto(Producto producto) {
-        productos.add(producto);
+        try
+        {
+            productos.add(producto);
+
+        }catch (Exception e)
+        {
+            System.out.println("Error al agregar producto");
+        }
+
     }
     public void imprimirProductos() {
         for (Producto producto : productos) {
@@ -22,12 +30,20 @@ public class SupermercadoServicio {
         }
     }
     public void mostrarProductoMasCaroYBarato() {
-        Producto masCaro = Collections.max(productos);
-        Producto masBarato = Collections.min(productos);
 
-        System.out.println("=============================");
-        System.out.println("Producto más caro: " + masCaro.getNombre());
-        System.out.println("Producto más barato: " + masBarato.getNombre());
+        try{
+
+            Producto masCaro = Collections.max(productos);
+            Producto masBarato = Collections.min(productos);
+
+            System.out.println("=============================");
+            System.out.println("Producto más caro: " + masCaro.getNombre());
+            System.out.println("Producto más barato: " + masBarato.getNombre());
+
+        }catch (Exception e){
+            System.out.println("Error al mostrar producto mas caro y barato");
+        }
+
     }
 }
 
